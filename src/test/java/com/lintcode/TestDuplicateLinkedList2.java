@@ -1,10 +1,8 @@
 package com.lintcode;
 
+import com.lintcode.Utils.ListNode;
 import org.junit.Test;
 
-import java.util.List;
-
-import static org.junit.Assert.assertTrue;
 
 public class TestDuplicateLinkedList2 {
 

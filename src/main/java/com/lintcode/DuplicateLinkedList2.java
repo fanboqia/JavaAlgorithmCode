@@ -1,5 +1,7 @@
 package com.lintcode;
 
+import com.lintcode.Utils.ListNode;
+
 import java.util.*;
 
 public class DuplicateLinkedList2 {

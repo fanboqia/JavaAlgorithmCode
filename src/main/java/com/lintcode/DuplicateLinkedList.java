@@ -1,16 +1,9 @@
 package com.lintcode;
 
+import com.lintcode.Utils.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
-
-class ListNode {
-  int val;
-  ListNode next;
-  ListNode(int x) {
-      val = x;
-      next = null;
-  }
-}
 
 public class DuplicateLinkedList {
 
