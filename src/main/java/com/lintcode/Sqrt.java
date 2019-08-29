@@ -10,7 +10,8 @@ public class Sqrt {
         // write your code here
         long mid = x;
         while(mid*mid > x){
-            mid = mid / 2;
+            //mid /= 2;
+            mid = mid >> 1;
         }
         if(mid * mid == x){
             return (int)mid;
