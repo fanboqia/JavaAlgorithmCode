@@ -1,6 +1,9 @@
 package com.lintcode.Utils;
 
-public class CommonUtils {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CommonUtils{
 
     public static ListNode ArrToList(int[] arr){
         ListNode[] arrNode = new ListNode[arr.length];
@@ -12,5 +15,19 @@ public class CommonUtils {
             arrNode[i - 1].next = arrNode[i];
         }
         return arrNode[0];
+    }
+
+    public static void printList(ListNode head){
+        if(head == null) return;
+        ListNode cur = head;
+        List list = new ArrayList<>();
+        while(cur!=null){
+            list.add(cur.val);
+            cur = cur.next;
+        }
+        for(Object item : list){
+            System.out.print(item+"->");
+        }
+        System.out.println("null");
     }
 }

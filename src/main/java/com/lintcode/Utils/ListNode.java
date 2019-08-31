@@ -1,9 +1,9 @@
 package com.lintcode.Utils;
 
 public class ListNode {
-    public int val;
+    public Integer val;
     public ListNode next;
-    public ListNode(int x) {
+    public ListNode(Integer x) {
         val = x;
         next = null;
     }
