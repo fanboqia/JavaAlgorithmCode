@@ -2,6 +2,11 @@ package com.lintcode.HuaWei;
 
 import java.util.Scanner;
 
+
+//思路：1.找规律，发现，如果用数组表示的话，第1行的1并不是在最左边，而是在第n个元素位置（n代表行号）
+//     2.第n行的元素的第一个和最后一个是要提前赋值为1.其他行的元素，除第一个外，按照公式
+//      a[i][j]=a[i][j-1]+a[i][j]+a[i][j+1];
+//      a[0][n-1]=a[n-1][0]=a[n-1][2*n-2]=1;
 public class YanghuiTriangle {
 
     public static int findYanghuiTriangle(int num)
