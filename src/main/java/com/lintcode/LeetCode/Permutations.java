@@ -16,7 +16,7 @@ public class Permutations {
     }
 
     private static <T> void permu(List<T[]> result, T[] arr, int l, int r){
-        if(l == r){
+        if(l > r){
             //注意这个arr要深拷贝一份，防止引用修改
             result.add(arr.clone());
         }else {

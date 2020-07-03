@@ -8,23 +8,33 @@ public class TopK {
     //用到快速排序的partition算法
     //思路：partition返回的Index等于k,那么之前的数都是小于它的数，可以返回了
     public static void find(int[] arr, int k){
-        if(arr == null || arr.length == 0){return;}
-        if(k > arr.length){return;}
-        int curK = arr.length - 1;
-        while(curK != k){
-            if(curK > k){
-                curK = QuickSort.partition(arr,0,curK);
+        findTopK(arr,0,arr.length-1,k);
+    }
+
+    //改进后快速排序
+    public static void findTopK(int[] arr, int start, int end, int k){
+        if(start >= end){
+            for(int i = 0; i < k; i++){
+                System.out.print(arr[i]+" ");
             }
-            if(curK < k){
-                curK = QuickSort.partition(arr,curK,k-1);
-            }
+            return;
         }
-        for(int i = 0; i < curK; i++){
-            System.out.print(arr[i]);
+        int mid = QuickSort.partition(arr,start,end);
+        if(k-1 < mid){
+            findTopK(arr,start,mid-1, k);
+        }
+        if(k-1 > mid){
+            findTopK(arr,mid+1,end, k);
+        }
+        if(k-1 == mid){
+            for(int i = 0; i < k; i++){
+                System.out.print(arr[i]+" ");
+            }
+            return;
         }
     }
 
     public static void main(String[] args) {
-        find(new int[]{4,2,1,3,5},2);
+        find(new int[]{5,4,3,2,0},5);
     }
 }
