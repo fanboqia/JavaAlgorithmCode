@@ -37,21 +37,6 @@ public class CalWeights {
 //        in.close();
 //    }
 
-    public static int fama(int n, int[] weight, int[] nums){
-        Set<Integer> set = new HashSet<Integer>();
-        for(int i = 0; i <= nums[0]; i++){
-            set.add(weight[0] * i);
-        }
-        for(int i = 1; i < n; i++){
-            List<Integer> list = new ArrayList<Integer>(set);
-            for(int j = 1; j <= nums[i]; j++){
-                for(int k = 0; k < list.size(); k++){
-                    set.add(list.get(k) + j * weight[i]);
-                }
-            }
-        }
-        return set.size();
-    }
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         while(in.hasNext()){
