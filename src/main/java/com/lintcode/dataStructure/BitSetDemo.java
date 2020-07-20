@@ -1,9 +1,13 @@
 package com.lintcode.dataStructure;
 
+import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.List;
+import java.util.Random;
 
 //位图数据结构，方便海量数据排序，大量统计
 //https://blog.csdn.net/u012736409/article/details/53735429
+//https://www.jianshu.com/p/4fbad3a6d253
 public class BitSetDemo {
 
     public static void sortArray() {
@@ -40,5 +44,36 @@ public class BitSetDemo {
 
     public static void main(String[] args){
         sortArray();
+    }
+
+    //有1千万个随机数，随机数的范围在1到1亿之间。现在要求写出一种算法，将1到1亿之间没有在随机数中的数求出来？
+    public static void alibaba(){
+        Random random=new Random();
+
+        List<Integer> list=new ArrayList<>();
+        for(int i=0;i<10000000;i++)
+        {
+            int randomResult=random.nextInt(100000000);
+            list.add(randomResult);
+        }
+        System.out.println("产生的随机数有");
+        for(int i=0;i<list.size();i++)
+        {
+            System.out.println(list.get(i));
+        }
+        BitSet bitSet=new BitSet(100000000);
+        for(int i=0;i<10000000;i++)
+        {
+            bitSet.set(list.get(i));
+        }
+
+        System.out.println("0~1亿不在上述随机数中有"+bitSet.cardinality());
+        for (int i = 0; i < 100000000; i++)
+        {
+            if(!bitSet.get(i))
+            {
+                System.out.println(i);
+            }
+        }
     }
 }

@@ -40,4 +40,16 @@ public class CommonUtils{
         }
         return true;
     }
+
+    public static ListNode ArrToLinkedList(int[] arr){
+        if(arr == null || arr.length == 0){return null;}
+        ListNode head = new ListNode(arr[0]);
+        ListNode cur = head;
+        for(int i = 1; i < arr.length; i++){
+            ListNode temp = new ListNode(arr[i]);
+            cur.next = temp;
+            cur = temp;
+        }
+        return head;
+    }
 }
