@@ -52,4 +52,37 @@ public class CommonUtils{
         }
         return head;
     }
+
+    public static TreeNode ArrToTree(int[] arr){
+        if(arr == null || arr.length == 0){return null;}
+        TreeNode root = new TreeNode(arr[0]);
+        for(int i = 1; i < arr.length; i++){
+            insertNode(root,new TreeNode(arr[i]));
+        }
+        return root;
+    }
+
+    private static void insertNode(TreeNode root, TreeNode node){
+        if(node.val >= root.val){
+            if(root.right == null){
+                root.right = node;
+            }else {
+                insertNode(root.right, node);
+            }
+        }else{
+            if(root.left == null){
+                root.left = node;
+            }else {
+                insertNode(root.left, node);
+            }
+        }
+    }
+
+    public static void printTree(TreeNode root){
+        if(root == null){return;}
+        printTree(root.left);
+        System.out.print(root.val+",");
+        printTree(root.right);
+    }
+
 }
