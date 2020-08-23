@@ -20,7 +20,7 @@ public class RemoveDuplicateItemsLinkedList {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1,2,3,3,4,4,5};
+        int[] arr = new int[]{1,1,2,2,3,3,3,4,4,5,6};
         CommonUtils.printList(deleteDuplication(CommonUtils.ArrToLinkedList(arr)));
     }
 }
